@@ -1,0 +1,34 @@
+plugins {
+    id 'java-library'
+    id 'org.openjfx.javafxplugin' version "$jfxPlugin"
+}
+
+group = 'palexdev'
+version = "$ver"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation("io.github.palexdev:scenicview:$scenicView") {
+        exclude(group: "org.openjfx")
+    }
+    testImplementation "org.testfx:testfx-junit5:$testfx"
+    testImplementation platform("org.junit:junit-bom:$junit")
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    // Because the new TestFX is garbage :)
+    jvmArgs += [
+            '--add-opens', 'javafx.graphics/com.sun.javafx.application=ALL-UNNAMED'
+    ]
+    useJUnitPlatform()
+}
+
+javafx {
+    version = "$jfx"
+    modules = ['javafx.controls']
+    configurations = ['testImplementation']
+}
