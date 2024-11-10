@@ -18,6 +18,8 @@
 
 package io.github.palexdev.rectcut;
 
+/// A simple functional interface which offers the four basic parameters to lay out a UI element: the x and y coordinates,
+/// the width and the height.
 @FunctionalInterface
 public interface LayoutFunction {
     void apply(double x, double y, double w, double h);

@@ -57,3 +57,13 @@ mavenPublishing {
     publishToMavenCentral(SonatypeHost.S01)
     signAllPublications()
 }
+
+tasks.withType(Javadoc) {
+    javadocTool.set(
+            javaToolchains.javadocToolFor(
+                    java.toolchain
+            )
+    )
+    failOnError = false
+    options.addBooleanOption('Xdoclint:all,-missing', true)
+}

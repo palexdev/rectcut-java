@@ -18,7 +18,8 @@
 
 package io.github.palexdev.rectcut;
 
-
+/// Enumerator for the four sides of a rectangle.
+/// Offers an alternative, but functionally identical, way to cut [Rect] areas.
 public enum RectSide {
     TOP {
         @Override
