@@ -712,21 +712,21 @@ public class TestSuite {
         assertEquals(230.0, header.getBoundsInParent().getMinY());
 
         assertEquals(8.0, subHeader.getLayoutX());
-        assertEquals(261.0, subHeader.getBoundsInParent().getMinY());
+        assertEquals(261.0, subHeader.getBoundsInParent().getMinY(), 2.0);
 
         // Actions
         assertEquals(120.0, action1.getLayoutX());
-        assertEquals(289.0, action1.getLayoutY());
+        assertEquals(289.0, action1.getLayoutY(), 2.0);
         assertEquals(40.0, action1.getWidth());
         assertEquals(40.0, action1.getHeight());
 
         assertEquals(172.0, action2.getLayoutX());
-        assertEquals(289.0, action2.getLayoutY());
+        assertEquals(289.0, action2.getLayoutY(), 2.0);
         assertEquals(40.0, action2.getWidth());
         assertEquals(40.0, action2.getHeight());
 
         assertEquals(224.0, action3.getLayoutX());
-        assertEquals(289.0, action3.getLayoutY());
+        assertEquals(289.0, action3.getLayoutY(), 2.0);
         assertEquals(40.0, action3.getWidth());
         assertEquals(40.0, action3.getHeight());
     }

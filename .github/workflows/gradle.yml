@@ -8,6 +8,11 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
+  checks: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,3 +34,9 @@ jobs:
 
       - name: Build with Gradle
         run: xvfb-run ./gradlew build -Djava.awt.headless=true -Dtestfx.robot=glass -Dtestfx.headless=true -Dprism.order=sw
+
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v5
+        if: failure() # always run even if the previous step fails
+        with:
+          report_paths: '**/build/test-results/test/TEST-*.xml'
