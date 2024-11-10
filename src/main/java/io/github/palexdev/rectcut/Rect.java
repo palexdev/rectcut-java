@@ -22,7 +22,7 @@ import java.util.Objects;
 import java.util.function.BiConsumer;
 
 /// Represents an area, such as an area of the screen, by its minimum x and y and maximum x and y.
-public final class Rect {
+public final class Rect implements Cloneable {
     //================================================================================
     // Properties
     //================================================================================
@@ -255,6 +255,11 @@ public final class Rect {
     //================================================================================
     // Overridden Methods
     //================================================================================
+    @Override
+    protected Rect clone() {
+        return Rect.of(minX, minY, maxX, maxY);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
